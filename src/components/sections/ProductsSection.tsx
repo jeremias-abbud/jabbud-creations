@@ -16,32 +16,32 @@ const ProductsSection = () => {
     },
     {
       icon: FileImage,
-      title: "Material Gráfico",
-      description: "Banners, placas, panfletos, cartões de visita e todos os materiais impressos para sua empresa.",
-      features: ["Design profissional", "Alta qualidade", "Diversos formatos"]
+      title: "Design Digital",
+      description: "Materiais gráficos digitais, posts para redes sociais, banners web e artes para plataformas online.",
+      features: ["Posts criativos", "Banners web", "Artes digitais"]
     },
     {
       icon: Globe,
-      title: "Sites & Digital",
-      description: "Desenvolvimento de sites responsivos e materiais digitais que complementam sua identidade visual.",
+      title: "Sites & Interfaces",
+      description: "Desenvolvimento de sites responsivos e interfaces digitais que complementam sua identidade visual.",
       features: ["Design responsivo", "SEO otimizado", "Interface moderna"]
     },
     {
       icon: Video,
-      title: "Vídeos & Motion",
+      title: "Motion Graphics",
       description: "Criação de vídeos promocionais, animações e motion graphics para suas campanhas digitais.",
       features: ["Animações fluidas", "Roteiro incluído", "Múltiplos formatos"]
     },
     {
       icon: Paintbrush,
-      title: "Mascotes & Ilustração",
-      description: "Criação de mascotes personalizadas e ilustrações únicas para dar personalidade à sua marca.",
-      features: ["Estilo único", "Múltiplas poses", "Versões digitais"]
+      title: "Ilustrações Digitais",
+      description: "Criação de mascotes digitais e ilustrações personalizadas para dar personalidade à sua marca online.",
+      features: ["Estilo único", "Múltiplas versões", "Formatos digitais"]
     },
     {
       icon: Megaphone,
-      title: "Campanhas Visuais",
-      description: "Desenvolvimento completo de campanhas publicitárias e materiais promocionais integrados.",
+      title: "Campanhas Digitais",
+      description: "Desenvolvimento completo de campanhas visuais para redes sociais e plataformas digitais.",
       features: ["Estratégia visual", "Múltiplas peças", "Identidade consistente"]
     }
   ];
@@ -56,8 +56,8 @@ const ProductsSection = () => {
               Nossos <span className="text-transparent bg-gradient-primary bg-clip-text">Serviços</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Do logotipo à campanha completa, oferecemos soluções completas em design 
-              e comunicação visual para fortalecer sua marca.
+              Do logotipo ao site completo, oferecemos soluções digitais completas em design 
+              e comunicação visual para fortalecer sua marca no ambiente digital.
             </p>
           </div>
 
@@ -127,8 +127,8 @@ const ProductsSection = () => {
               Precisa de uma identidade visual completa?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Oferecemos pacotes completos que incluem logotipo, materiais gráficos, 
-              site e tudo que sua marca precisa para se destacar.
+              Oferecemos pacotes completos que incluem logotipo, materiais digitais, 
+              site e tudo que sua marca precisa para se destacar no mundo digital.
             </p>
             <Button variant="hero" size="lg" onClick={handleWhatsApp}>
               Conversar sobre meu projeto

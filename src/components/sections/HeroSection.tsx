@@ -30,10 +30,10 @@ const HeroSection = () => {
             <span className="text-transparent bg-gradient-primary bg-clip-text"> Marcam</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Criamos identidades visuais únicas que fazem sua marca se destacar. 
-            Logotipos, banners, sites e muito mais com design profissional.
-          </p>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              Criamos identidades visuais únicas que fazem sua marca se destacar no digital. 
+              Logotipos, sites, motion graphics e estratégias visuais completas.
+            </p>
 
           {/* Botões de Ação */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">

@@ -32,8 +32,8 @@ const Footer = () => {
                 />
               </div>
               <p className="text-dark-foreground/80 leading-relaxed mb-4">
-                Especialistas em logotipos e identidade visual. Criamos designs únicos 
-                que fazem sua marca se destacar com profissionalismo e criatividade.
+                Especialistas em logotipos e identidade visual digital. Criamos designs únicos 
+                que fazem sua marca se destacar no ambiente digital com profissionalismo e criatividade.
               </p>
               <div className="flex items-center gap-4">
                 <button
@@ -71,7 +71,7 @@ const Footer = () => {
                   onClick={() => scrollToSection("#produtos")}
                   className="block text-dark-foreground/80 hover:text-primary transition-colors"
                 >
-                  Produtos
+                  Serviços
                 </button>
                 <button 
                   onClick={() => scrollToSection("#portfolio")}

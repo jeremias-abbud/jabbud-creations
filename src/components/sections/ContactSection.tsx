@@ -32,10 +32,10 @@ const ContactSection = () => {
                 <h3 className="text-2xl font-semibold text-foreground mb-6">
                   Vamos criar juntos
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  Estamos prontos para desenvolver a identidade visual que sua marca merece. 
-                  Do logotipo aos materiais completos, criamos soluções que geram impacto.
-                </p>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Estamos prontos para desenvolver a identidade visual digital que sua marca merece. 
+                Do logotipo aos materiais online, criamos soluções que geram impacto no digital.
+              </p>
               </div>
 
               <div className="space-y-6">

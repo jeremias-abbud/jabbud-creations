@@ -11,8 +11,8 @@ const AboutSection = () => {
               Sobre a <span className="text-transparent bg-gradient-primary bg-clip-text">Jabbud</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Somos especialistas em design gráfico e identidade visual, criando logotipos 
-              e materiais que fazem sua marca se destacar no mercado.
+              Somos especialistas em design gráfico e identidade visual digital, criando logotipos 
+              e materiais digitais que fazem sua marca se destacar no mercado online.
             </p>
           </div>
 
@@ -23,14 +23,14 @@ const AboutSection = () => {
                 Nossa Especialidade
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                A Jabbud é especializada na criação de identidades visuais impactantes. 
+                A Jabbud é especializada na criação de identidades visuais digitais impactantes. 
                 Nosso foco principal são logotipos únicos, mas também desenvolvemos 
-                materiais completos de comunicação visual.
+                sites, motion graphics e campanhas completas para o digital.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Cada projeto é desenvolvido com estratégia, criatividade e atenção aos 
                 detalhes, garantindo que sua marca tenha a personalidade e o impacto 
-                visual necessários para se destacar.
+                visual necessários para se destacar no ambiente digital.
               </p>
               
               {/* Valores */}
@@ -64,7 +64,7 @@ const AboutSection = () => {
                     </div>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    Criamos identidades visuais que comunicam os valores da sua marca de forma clara e impactante.
+                    Criamos identidades visuais digitais que comunicam os valores da sua marca de forma clara e impactante.
                   </p>
                 </div>
 
@@ -79,7 +79,7 @@ const AboutSection = () => {
                     </div>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    Do logotipo aos materiais impressos e digitais, criamos uma identidade completa e consistente.
+                    Do logotipo aos sites e campanhas digitais, criamos uma identidade completa e consistente para o ambiente online.
                   </p>
                 </div>
               </div>

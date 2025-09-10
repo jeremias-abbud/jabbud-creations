@@ -1,5 +1,6 @@
-import { Instagram, ExternalLink, Eye } from "lucide-react";
+import { Instagram, ExternalLink, Eye, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LogoCarousel from "@/components/LogoCarousel";
 
 const PortfolioSection = () => {
   const handleInstagram = () => {
@@ -20,9 +21,22 @@ const PortfolioSection = () => {
               Nosso <span className="text-transparent bg-gradient-primary bg-clip-text">Portfolio</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Confira nossos trabalhos e inspire-se com logotipos e designs únicos. 
-              Cada projeto reflete nossa paixão pelo design estratégico.
+              Confira alguns dos logotipos e projetos digitais que criamos. 
+              Cada trabalho reflete nossa paixão pelo design estratégico e criativo.
             </p>
+          </div>
+
+          {/* Carrossel de Logotipos */}
+          <div className="mb-16 animate-fade-in">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-semibold text-foreground mb-3">
+                Logotipos Criados
+              </h3>
+              <p className="text-muted-foreground">
+                Algumas das identidades visuais que desenvolvemos para nossos clientes
+              </p>
+            </div>
+            <LogoCarousel />
           </div>
 
           {/* Instagram Integration */}
@@ -40,8 +54,8 @@ const PortfolioSection = () => {
                 </h3>
                 
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Acompanhe nossos trabalhos mais recentes no Instagram! 
-                  Lá você encontra nossos logotipos, processo criativo e projetos finalizados.
+                  Siga nosso Instagram para ver mais trabalhos, processo criativo 
+                  e os bastidores da criação dos nossos projetos digitais.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -52,8 +66,8 @@ const PortfolioSection = () => {
                     className="group"
                   >
                     <Instagram className="w-5 h-5 mr-2" />
-                    Ver no Instagram
-                    <ExternalLink className="w-4 h-4 ml-2 transition-transform group-hover:scale-110" />
+                    Ver Mais no Instagram
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
                   
                   <Button 
@@ -63,7 +77,7 @@ const PortfolioSection = () => {
                     className="group border-2"
                   >
                     <Eye className="w-5 h-5 mr-2" />
-                    Solicitar Portfolio
+                    Solicitar Portfolio Completo
                   </Button>
                 </div>
               </div>
@@ -82,23 +96,23 @@ const PortfolioSection = () => {
               </div>
             </div>
 
-            <div className="bg-card p-6 rounded-xl shadow-elegant border animate-fade-in hover:shadow-glow transition-all duration-300" style={{ animationDelay: '0.2s' }}>
+            <div className="bg-card p-6 rounded-xl shadow-elegant border animate-fade-in hover:shadow-glow transition-all duration-300" style={{ animationDelay: "0.2s" }}>
               <div className="text-center">
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-secondary-foreground font-bold">100%</span>
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">Materiais Criados</h4>
-                <p className="text-muted-foreground text-sm">Banners, sites, vídeos e muito mais</p>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Projetos Digitais</h4>
+                <p className="text-muted-foreground text-sm">Sites, motion graphics, posts e campanhas</p>
               </div>
             </div>
 
-            <div className="bg-card p-6 rounded-xl shadow-elegant border animate-fade-in hover:shadow-glow transition-all duration-300" style={{ animationDelay: '0.4s' }}>
+            <div className="bg-card p-6 rounded-xl shadow-elegant border animate-fade-in hover:shadow-glow transition-all duration-300" style={{ animationDelay: "0.4s" }}>
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold">∞</span>
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">Possibilidades</h4>
-                <p className="text-muted-foreground text-sm">Sua imaginação é o limite</p>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Criatividade</h4>
+                <p className="text-muted-foreground text-sm">Sua imaginação é o limite no digital</p>
               </div>
             </div>
           </div>
