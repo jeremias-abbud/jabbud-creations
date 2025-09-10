@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/5531986752884", "_blank");
+    window.open("https://wa.me/5531986752884?text=Olá! Gostaria de iniciar uma conversa sobre meu projeto de design/logotipo.", "_blank");
   };
 
   const handleInstagram = () => {

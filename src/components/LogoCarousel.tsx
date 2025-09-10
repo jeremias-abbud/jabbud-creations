@@ -127,18 +127,7 @@ const LogoCarousel = () => {
                   />
                 </div>
                 
-                {/* Informações do projeto */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h4 className="font-semibold text-foreground">{}</h4>
-                    <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">
-                      {}
-                    </span>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {}
-                  </p>
-                </div>
+                {/* Informações do projeto - removidas pois não são necessárias */}
               </div>
             </CarouselItem>
           ))}

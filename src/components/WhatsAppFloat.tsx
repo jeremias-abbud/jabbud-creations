@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const WhatsAppFloat = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/5531986752884", "_blank");
+    window.open("https://wa.me/5531986752884?text=Olá! Gostaria de saber mais sobre os serviços da Jabbud Creations.", "_blank");
   };
 
   return (

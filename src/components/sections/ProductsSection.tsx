@@ -2,8 +2,11 @@ import { Crown, FileImage, Globe, Video, Paintbrush, Megaphone } from "lucide-re
 import { Button } from "@/components/ui/button";
 
 const ProductsSection = () => {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/5531986752884", "_blank");
+  const handleWhatsApp = (service?: string) => {
+    const message = service ? 
+      `Olá! Gostaria de saber mais sobre o serviço de ${service} e solicitar um orçamento.` :
+      "Olá! Gostaria de conversar sobre uma identidade visual completa para minha marca.";
+    window.open(`https://wa.me/5531986752884?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   const services = [
@@ -113,7 +116,7 @@ const ProductsSection = () => {
                 <Button 
                   variant={service.highlight ? "hero" : "outline"}
                   className="w-full group"
-                  onClick={handleWhatsApp}
+                  onClick={() => handleWhatsApp(service.title)}
                 >
                   {service.highlight ? "Solicitar Logotipo" : "Saiba Mais"}
                 </Button>
@@ -130,7 +133,7 @@ const ProductsSection = () => {
               Oferecemos pacotes completos que incluem logotipo, materiais digitais, 
               site e tudo que sua marca precisa para se destacar no mundo digital.
             </p>
-            <Button variant="hero" size="lg" onClick={handleWhatsApp}>
+            <Button variant="hero" size="lg" onClick={() => handleWhatsApp()}>
               Conversar sobre meu projeto
             </Button>
           </div>

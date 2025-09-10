@@ -8,7 +8,7 @@ const PortfolioSection = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/5531986752884", "_blank");
+    window.open("https://wa.me/5531986752884?text=Olá! Vi o portfolio no site e gostaria de solicitar um orçamento para um projeto similar.", "_blank");
   };
 
   return (

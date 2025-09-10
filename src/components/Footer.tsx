@@ -3,7 +3,7 @@ import logo from "@/assets/jabbud-logo-dark.png";
 
 const Footer = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/5531986752884", "_blank");
+    window.open("https://wa.me/5531986752884?text=Olá! Gostaria de saber mais sobre os serviços da Jabbud Creations e fazer um orçamento.", "_blank");
   };
 
   const handleInstagram = () => {

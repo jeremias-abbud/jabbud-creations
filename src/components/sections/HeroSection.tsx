@@ -7,6 +7,10 @@ const HeroSection = () => {
     document.querySelector("#contato")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/5531986752884?text=Olá! Gostaria de solicitar um orçamento para criação de logotipo/identidade visual.", "_blank");
+  };
+
   const handleInstagram = () => {
     window.open("https://instagram.com/jabbudcreations", "_blank");
   };
@@ -40,7 +44,7 @@ const HeroSection = () => {
             <Button 
               variant="hero" 
               size="xl" 
-              onClick={scrollToContact}
+              onClick={handleWhatsApp}
               className="group"
             >
               Solicitar Orçamento

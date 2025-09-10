@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/5531986752884", "_blank");
+    window.open("https://wa.me/5531986752884?text=Olá! Vim através do site e gostaria de entrar em contato para conversar sobre meu projeto.", "_blank");
   };
 
   return (
