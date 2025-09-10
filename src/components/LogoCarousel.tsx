@@ -10,6 +10,18 @@ import logo3 from "@/assets/logo-sample-3.png";
 import logo4 from "@/assets/logo-sample-4.png";
 import logo5 from "@/assets/logo-sample-5.png";
 import logo6 from "@/assets/logo-sample-6.png";
+import logo7 from "@/assets/logo-sample-7.png";
+import logo8 from "@/assets/logo-sample-8.png";
+import logo9 from "@/assets/logo-sample-9.png";
+import logo10 from "@/assets/logo-sample-10.png";
+import logo11 from "@/assets/logo-sample-11.png";
+import logo12 from "@/assets/logo-sample-12.png";
+import logo13 from "@/assets/logo-sample-13.png";
+import logo14 from "@/assets/logo-sample-14.png";
+import logo15 from "@/assets/logo-sample-15.png";
+import logo16 from "@/assets/logo-sample-16.png";
+import logo17 from "@/assets/logo-sample-17.png";
+import logo18 from "@/assets/logo-sample-18.png";
 
 const LogoCarousel = () => {
   // Dados dos logotipos - você pode facilmente modificar estes dados
@@ -17,45 +29,75 @@ const LogoCarousel = () => {
     {
       id: 1,
       image: logo1,
-      title: "Brand Identity",
-      category: "Tecnologia",
-      description: "Logotipo moderno e minimalista para startup de tecnologia"
     },
     {
       id: 2,
       image: logo2,
-      title: "Creative Studio",
-      category: "Criativo",
-      description: "Identidade visual artística para estúdio criativo"
     },
     {
       id: 3,
       image: logo3,
-      title: "Tech Innovation",
-      category: "Startup",
-      description: "Logo inovador para empresa de tecnologia digital"
     },
     {
       id: 4,
       image: logo4,
-      title: "Luxury Brand",
-      category: "Luxo",
-      description: "Identidade elegante para marca premium"
     },
     {
       id: 5,
       image: logo5,
-      title: "Creative Agency",
-      category: "Agência",
-      description: "Logotipo vibrante para agência criativa"
     },
     {
       id: 6,
       image: logo6,
-      title: "Healthcare Plus",
-      category: "Saúde",
-      description: "Identidade profissional para área da saúde"
-    }
+    },
+    {
+      id: 7,
+      image: logo7,
+    },
+    {
+      id: 8,
+      image: logo8,
+    },
+    {
+      id: 9,
+      image: logo9,
+    },
+    {
+      id: 10,
+      image: logo10,
+    },
+    {
+      id: 11,
+      image: logo11,
+    },
+    {
+      id: 12,
+      image: logo12,
+    },
+    {
+      id: 13,
+      image: logo13,
+    },
+    {
+      id: 14,
+      image: logo14,
+    },
+    {
+      id: 15,
+      image: logo15,
+    },
+    {
+      id: 16,
+      image: logo16,
+    },
+    {
+      id: 17,
+      image: logo17,
+    },
+    {
+      id: 18,
+      image: logo18,
+    },
   ];
 
   return (
