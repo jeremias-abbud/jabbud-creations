@@ -122,7 +122,7 @@ const LogoCarousel = () => {
                 <div className="aspect-square bg-muted/20 rounded-lg p-6 mb-4 flex items-center justify-center overflow-hidden">
                   <img 
                     src={logo.image} 
-                    alt={logo.title}
+                    alt={"image"}
                     className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
                 </div>
@@ -130,13 +130,13 @@ const LogoCarousel = () => {
                 {/* Informações do projeto */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-semibold text-foreground">{logo.title}</h4>
+                    <h4 className="font-semibold text-foreground">{}</h4>
                     <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">
-                      {logo.category}
+                      {}
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    {logo.description}
+                    {}
                   </p>
                 </div>
               </div>

@@ -11,7 +11,7 @@ const ProductsSection = () => {
       icon: Crown,
       title: "Logotipos",
       description: "Nossa especialidade! Criamos logotipos únicos e marcantes que representam perfeitamente sua marca e valores.",
-      features: ["Design exclusivo", "Múltiplas versões", "Manual de marca"],
+      features: ["Design exclusivo", "Múltiplas versões", "Formatos PNG / PDF"],
       highlight: true
     },
     {
