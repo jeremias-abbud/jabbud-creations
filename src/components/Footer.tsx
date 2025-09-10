@@ -1,5 +1,5 @@
 import { Heart, Instagram, MessageCircle } from "lucide-react";
-import logo from "@/assets/jabbud-logo.png";
+import logo from "@/assets/jabbud-logo-dark.png";
 
 const Footer = () => {
   const handleWhatsApp = () => {
@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             {/* Logo e Descrição */}
             <div className="md:col-span-2">
-              <div className="flex items-center mb-4">
+              <div className="mb-4">
                 <img 
                   src={logo} 
                   alt="Jabbud Logo" 
@@ -32,8 +32,8 @@ const Footer = () => {
                 />
               </div>
               <p className="text-dark-foreground/80 leading-relaxed mb-4">
-                Transformamos ideias em realidade com criatividade, qualidade e paixão. 
-                Criações únicas e artesanais que contam sua história.
+                Especialistas em logotipos e identidade visual. Criamos designs únicos 
+                que fazem sua marca se destacar com profissionalismo e criatividade.
               </p>
               <div className="flex items-center gap-4">
                 <button

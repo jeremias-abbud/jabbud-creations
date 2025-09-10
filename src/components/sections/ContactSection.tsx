@@ -20,8 +20,8 @@ const ContactSection = () => {
               Entre em <span className="text-transparent bg-gradient-primary bg-clip-text">Contato</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Pronto para transformar sua ideia em realidade? 
-              Vamos conversar sobre seu próximo projeto!
+              Pronto para criar o logotipo perfeito para sua marca? 
+              Vamos conversar sobre seu projeto de identidade visual!
             </p>
           </div>
 
@@ -30,11 +30,11 @@ const ContactSection = () => {
             <div className="space-y-8 animate-fade-in">
               <div>
                 <h3 className="text-2xl font-semibold text-foreground mb-6">
-                  Vamos conversar
+                  Vamos criar juntos
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  Estamos sempre prontos para ouvir suas ideias e transformá-las em algo extraordinário. 
-                  Entre em contato através dos nossos canais abaixo.
+                  Estamos prontos para desenvolver a identidade visual que sua marca merece. 
+                  Do logotipo aos materiais completos, criamos soluções que geram impacto.
                 </p>
               </div>
 
@@ -80,15 +80,15 @@ const ContactSection = () => {
             {/* Call to Action */}
             <div className="animate-fade-in">
               <div className="bg-card p-8 rounded-xl shadow-glow border">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-semibold text-foreground mb-4">
-                    Pronto para começar?
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Clique no botão abaixo e vamos conversar sobre seu projeto. 
-                    Estamos ansiosos para conhecer suas ideias!
-                  </p>
-                </div>
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-semibold text-foreground mb-4">
+                      Pronto para seu logotipo?
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Clique no botão abaixo e vamos criar a identidade visual perfeita para sua marca. 
+                      Estamos ansiosos para conhecer seu projeto!
+                    </p>
+                  </div>
 
                 <div className="space-y-4">
                   <Button 
@@ -119,19 +119,19 @@ const ContactSection = () => {
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                      <span>Especialistas em logotipos</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                      <span>Design estratégico único</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                      <span>Identidade visual completa</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
                       <span>Atendimento personalizado</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                      <span>Qualidade garantida</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                      <span>Prazos respeitados</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                      <span>Preços justos</span>
                     </div>
                   </div>
                 </div>

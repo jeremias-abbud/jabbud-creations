@@ -20,8 +20,8 @@ const PortfolioSection = () => {
               Nosso <span className="text-transparent bg-gradient-primary bg-clip-text">Portfolio</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Explore nossa coleção de trabalhos e inspire-se com as possibilidades. 
-              Cada projeto conta uma história única.
+              Confira nossos trabalhos e inspire-se com logotipos e designs únicos. 
+              Cada projeto reflete nossa paixão pelo design estratégico.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ const PortfolioSection = () => {
                 
                 <p className="text-muted-foreground mb-8 leading-relaxed">
                   Acompanhe nossos trabalhos mais recentes no Instagram! 
-                  Lá você encontra o processo criativo, produtos finalizados e muito mais.
+                  Lá você encontra nossos logotipos, processo criativo e projetos finalizados.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -75,10 +75,10 @@ const PortfolioSection = () => {
             <div className="bg-card p-6 rounded-xl shadow-elegant border animate-fade-in hover:shadow-glow transition-all duration-300">
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold">50+</span>
+                  <span className="text-white font-bold">150+</span>
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">Projetos Realizados</h4>
-                <p className="text-muted-foreground text-sm">Diversas criações únicas e personalizadas</p>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Logotipos Criados</h4>
+                <p className="text-muted-foreground text-sm">Identidades visuais únicas e marcantes</p>
               </div>
             </div>
 
@@ -87,8 +87,8 @@ const PortfolioSection = () => {
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-secondary-foreground font-bold">100%</span>
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">Clientes Satisfeitos</h4>
-                <p className="text-muted-foreground text-sm">Qualidade e dedicação em cada projeto</p>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Materiais Criados</h4>
+                <p className="text-muted-foreground text-sm">Banners, sites, vídeos e muito mais</p>
               </div>
             </div>
 

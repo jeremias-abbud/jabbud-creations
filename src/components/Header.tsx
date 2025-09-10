@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/jabbud-logo.png";
+import logo from "@/assets/jabbud-logo-dark.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

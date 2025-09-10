@@ -1,4 +1,4 @@
-import { Palette, Package, Sparkles } from "lucide-react";
+import { Crown, FileImage, Globe, Video, Paintbrush, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ProductsSection = () => {
@@ -6,24 +6,43 @@ const ProductsSection = () => {
     window.open("https://wa.me/5531986752884", "_blank");
   };
 
-  const products = [
+  const services = [
     {
-      icon: Palette,
-      title: "Arte Personalizada",
-      description: "Criações únicas desenvolvidas especialmente para você, desde ilustrações até peças decorativas personalizadas.",
-      features: ["Desenhos exclusivos", "Diferentes técnicas", "Personalização completa"]
+      icon: Crown,
+      title: "Logotipos",
+      description: "Nossa especialidade! Criamos logotipos únicos e marcantes que representam perfeitamente sua marca e valores.",
+      features: ["Design exclusivo", "Múltiplas versões", "Manual de marca"],
+      highlight: true
     },
     {
-      icon: Package,
-      title: "Produtos Artesanais",
-      description: "Itens feitos à mão com materiais premium, perfeitos para decoração ou presentes especiais.",
-      features: ["Materiais naturais", "Acabamento premium", "Peças únicas"]
+      icon: FileImage,
+      title: "Material Gráfico",
+      description: "Banners, placas, panfletos, cartões de visita e todos os materiais impressos para sua empresa.",
+      features: ["Design profissional", "Alta qualidade", "Diversos formatos"]
     },
     {
-      icon: Sparkles,
-      title: "Projetos Especiais",
-      description: "Desenvolvemos projetos sob medida para eventos, empresas ou ocasiões especiais.",
-      features: ["Consultoria incluída", "Prazos flexíveis", "Acompanhamento total"]
+      icon: Globe,
+      title: "Sites & Digital",
+      description: "Desenvolvimento de sites responsivos e materiais digitais que complementam sua identidade visual.",
+      features: ["Design responsivo", "SEO otimizado", "Interface moderna"]
+    },
+    {
+      icon: Video,
+      title: "Vídeos & Motion",
+      description: "Criação de vídeos promocionais, animações e motion graphics para suas campanhas digitais.",
+      features: ["Animações fluidas", "Roteiro incluído", "Múltiplos formatos"]
+    },
+    {
+      icon: Paintbrush,
+      title: "Mascotes & Ilustração",
+      description: "Criação de mascotes personalizadas e ilustrações únicas para dar personalidade à sua marca.",
+      features: ["Estilo único", "Múltiplas poses", "Versões digitais"]
+    },
+    {
+      icon: Megaphone,
+      title: "Campanhas Visuais",
+      description: "Desenvolvimento completo de campanhas publicitárias e materiais promocionais integrados.",
+      features: ["Estratégia visual", "Múltiplas peças", "Identidade consistente"]
     }
   ];
 
@@ -34,36 +53,56 @@ const ProductsSection = () => {
           {/* Header da seção */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Nossos <span className="text-transparent bg-gradient-primary bg-clip-text">Produtos</span>
+              Nossos <span className="text-transparent bg-gradient-primary bg-clip-text">Serviços</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Cada categoria representa nossa dedicação à excelência e criatividade. 
-              Descubra as possibilidades que podemos criar juntos.
+              Do logotipo à campanha completa, oferecemos soluções completas em design 
+              e comunicação visual para fortalecer sua marca.
             </p>
           </div>
 
-          {/* Grid de Produtos */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {products.map((product, index) => (
+          {/* Grid de Serviços */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {services.map((service, index) => (
               <div 
                 key={index}
-                className="bg-card p-8 rounded-xl shadow-elegant border hover:shadow-glow transition-all duration-300 hover:-translate-y-2 animate-fade-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className={`bg-card p-8 rounded-xl shadow-elegant border transition-all duration-300 hover:-translate-y-2 animate-fade-in ${
+                  service.highlight 
+                    ? 'ring-2 ring-primary/50 hover:shadow-glow' 
+                    : 'hover:shadow-glow'
+                }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
-                    <product.icon className="w-8 h-8 text-white" />
+                {service.highlight && (
+                  <div className="flex justify-center mb-2">
+                    <span className="bg-gradient-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      ESPECIALIDADE
+                    </span>
                   </div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-3">
-                    {product.title}
+                )}
+                
+                <div className="mb-6">
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
+                    service.highlight 
+                      ? 'bg-gradient-primary' 
+                      : 'bg-primary/20'
+                  }`}>
+                    <service.icon className={`w-8 h-8 ${
+                      service.highlight 
+                        ? 'text-white' 
+                        : 'text-primary'
+                    }`} />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {product.description}
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {service.description}
                   </p>
                 </div>
 
                 <div className="space-y-2 mb-6">
-                  {product.features.map((feature, idx) => (
+                  {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
                       <span className="text-sm text-muted-foreground">{feature}</span>
@@ -72,12 +111,11 @@ const ProductsSection = () => {
                 </div>
 
                 <Button 
-                  variant="outline" 
-                  className="w-full group border-primary/20 hover:border-primary"
+                  variant={service.highlight ? "hero" : "outline"}
+                  className="w-full group"
                   onClick={handleWhatsApp}
                 >
-                  Saiba Mais
-                  <Sparkles className="w-4 h-4 ml-2 transition-transform group-hover:scale-110" />
+                  {service.highlight ? "Solicitar Logotipo" : "Saiba Mais"}
                 </Button>
               </div>
             ))}
@@ -86,13 +124,14 @@ const ProductsSection = () => {
           {/* Call to Action */}
           <div className="text-center bg-card p-8 rounded-xl shadow-elegant border animate-fade-in">
             <h3 className="text-2xl font-semibold text-foreground mb-4">
-              Tem uma ideia especial?
+              Precisa de uma identidade visual completa?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Adoramos desafios criativos! Entre em contato e vamos transformar sua visão em realidade.
+              Oferecemos pacotes completos que incluem logotipo, materiais gráficos, 
+              site e tudo que sua marca precisa para se destacar.
             </p>
             <Button variant="hero" size="lg" onClick={handleWhatsApp}>
-              Conversar no WhatsApp
+              Conversar sobre meu projeto
             </Button>
           </div>
         </div>

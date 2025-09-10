@@ -11,8 +11,8 @@ const AboutSection = () => {
               Sobre a <span className="text-transparent bg-gradient-primary bg-clip-text">Jabbud</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Somos uma empresa dedicada à criação de produtos únicos e artesanais, 
-              combinando tradição e inovação em cada peça.
+              Somos especialistas em design gráfico e identidade visual, criando logotipos 
+              e materiais que fazem sua marca se destacar no mercado.
             </p>
           </div>
 
@@ -20,27 +20,28 @@ const AboutSection = () => {
             {/* Texto Principal */}
             <div className="space-y-6 animate-fade-in">
               <h3 className="text-2xl font-semibold text-foreground mb-4">
-                Nossa História
+                Nossa Especialidade
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                A Jabbud nasceu da paixão por criar produtos únicos que contam histórias. 
-                Cada peça é cuidadosamente elaborada com atenção aos detalhes e 
-                compromisso com a qualidade superior.
+                A Jabbud é especializada na criação de identidades visuais impactantes. 
+                Nosso foco principal são logotipos únicos, mas também desenvolvemos 
+                materiais completos de comunicação visual.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Nosso objetivo é transformar suas ideias em realidade, oferecendo 
-                soluções criativas e personalizadas que superam expectativas.
+                Cada projeto é desenvolvido com estratégia, criatividade e atenção aos 
+                detalhes, garantindo que sua marca tenha a personalidade e o impacto 
+                visual necessários para se destacar.
               </p>
               
               {/* Valores */}
               <div className="space-y-4 mt-8">
                 <div className="flex items-center gap-3">
                   <Heart className="w-6 h-6 text-primary" />
-                  <span className="text-foreground font-medium">Paixão em cada criação</span>
+                  <span className="text-foreground font-medium">Design estratégico e criativo</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Award className="w-6 h-6 text-secondary" />
-                  <span className="text-foreground font-medium">Qualidade garantida</span>
+                  <span className="text-foreground font-medium">Identidade visual completa</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Users className="w-6 h-6 text-primary" />
@@ -58,12 +59,12 @@ const AboutSection = () => {
                       <Heart className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground">Criação Artesanal</h4>
-                      <p className="text-sm text-muted-foreground">Feito à mão com cuidado</p>
+                      <h4 className="font-semibold text-foreground">Design Estratégico</h4>
+                      <p className="text-sm text-muted-foreground">Logotipos com propósito</p>
                     </div>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    Cada produto é único, criado especialmente para você com técnicas tradicionais e materiais de primeira qualidade.
+                    Criamos identidades visuais que comunicam os valores da sua marca de forma clara e impactante.
                   </p>
                 </div>
 
@@ -73,12 +74,12 @@ const AboutSection = () => {
                       <Award className="w-6 h-6 text-secondary-foreground" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground">Qualidade Premium</h4>
-                      <p className="text-sm text-muted-foreground">Materiais selecionados</p>
+                      <h4 className="font-semibold text-foreground">Versatilidade Visual</h4>
+                      <p className="text-sm text-muted-foreground">Múltiplas aplicações</p>
                     </div>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    Utilizamos apenas os melhores materiais e técnicas aperfeiçoadas para garantir durabilidade e beleza.
+                    Do logotipo aos materiais impressos e digitais, criamos uma identidade completa e consistente.
                   </p>
                 </div>
               </div>

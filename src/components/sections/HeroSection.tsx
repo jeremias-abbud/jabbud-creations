@@ -1,6 +1,6 @@
 import { ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/jabbud-logo.png";
+import logo from "@/assets/jabbud-logo-dark.png";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -26,13 +26,13 @@ const HeroSection = () => {
           
           {/* Título e Subtítulo */}
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 animate-fade-in">
-            Criações que 
-            <span className="text-transparent bg-gradient-primary bg-clip-text"> Inspiram</span>
+            Logotipos que 
+            <span className="text-transparent bg-gradient-primary bg-clip-text"> Marcam</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Transformamos ideias em realidade com criatividade, qualidade e paixão. 
-            Descubra nossos produtos únicos e artesanais.
+            Criamos identidades visuais únicas que fazem sua marca se destacar. 
+            Logotipos, banners, sites e muito mais com design profissional.
           </p>
 
           {/* Botões de Ação */}
@@ -61,16 +61,16 @@ const HeroSection = () => {
           {/* Destaque da Empresa */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">100%</div>
-              <div className="text-muted-foreground">Artesanal</div>
+              <div className="text-3xl font-bold text-primary mb-2">Design</div>
+              <div className="text-muted-foreground">Profissional</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary mb-2">Premium</div>
-              <div className="text-muted-foreground">Qualidade</div>
+              <div className="text-3xl font-bold text-secondary mb-2">Criativo</div>
+              <div className="text-muted-foreground">& Único</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">Único</div>
-              <div className="text-muted-foreground">Personalizado</div>
+              <div className="text-3xl font-bold text-primary mb-2">Impacto</div>
+              <div className="text-muted-foreground">Visual</div>
             </div>
           </div>
         </div>
