@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import React from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 // Import dos logotipos de exemplo (substitua pelos seus próprios)
@@ -23,7 +22,11 @@ import logo16 from "@/assets/logo-sample-16.png";
 import logo17 from "@/assets/logo-sample-17.png";
 import logo18 from "@/assets/logo-sample-18.png";
 
-const LogoCarousel = () => {
+interface LogoCarouselProps {
+  uploadedImages?: string[];
+}
+
+const LogoCarousel: React.FC<LogoCarouselProps> = ({ uploadedImages = [] }) => {
   // Dados dos logotipos - você pode facilmente modificar estes dados
   const logos = [
     {
@@ -100,6 +103,16 @@ const LogoCarousel = () => {
     },
   ];
 
+  // Combinar logos estáticos com imagens carregadas pelo usuário
+  const allImages = [
+    ...logos.map(logo => ({ id: logo.id, image: logo.image, isUploaded: false })),
+    ...uploadedImages.map((image, index) => ({ 
+      id: `uploaded-${index}`, 
+      image, 
+      isUploaded: true 
+    }))
+  ];
+
   return (
     <div className="w-full max-w-6xl mx-auto">
       <Carousel
@@ -115,19 +128,24 @@ const LogoCarousel = () => {
         className="w-full"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
-          {logos.map((logo) => (
-            <CarouselItem key={logo.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+          {allImages.map((item) => (
+            <CarouselItem key={item.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
               <div className="bg-card rounded-xl shadow-elegant border p-6 h-full hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
                 {/* Container da imagem */}
                 <div className="aspect-square bg-muted/20 rounded-lg p-6 mb-4 flex items-center justify-center overflow-hidden">
                   <img 
-                    src={logo.image} 
-                    alt={"image"}
+                    src={item.image} 
+                    alt={item.isUploaded ? "Imagem carregada" : "Logo exemplo"}
                     className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
                 </div>
-                
-                {/* Informações do projeto - removidas pois não são necessárias */}
+                {item.isUploaded && (
+                  <div className="text-center">
+                    <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
+                      Sua Imagem
+                    </span>
+                  </div>
+                )}
               </div>
             </CarouselItem>
           ))}
@@ -140,7 +158,7 @@ const LogoCarousel = () => {
       
       {/* Indicadores mobile */}
       <div className="flex md:hidden justify-center mt-4 space-x-2">
-        {logos.map((_, index) => (
+        {allImages.map((_, index) => (
           <div
             key={index}
             className="w-2 h-2 rounded-full bg-muted-foreground/30"

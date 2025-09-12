@@ -1,8 +1,13 @@
-import { Instagram, ExternalLink, Eye, ArrowRight } from "lucide-react";
+import React, { useState } from "react";
+import { Instagram, ExternalLink, Eye, ArrowRight, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import LogoCarousel from "@/components/LogoCarousel";
+import ImageUploader from "@/components/ImageUploader";
 
 const PortfolioSection = () => {
+  const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+  const [showUploader, setShowUploader] = useState(false);
   const handleInstagram = () => {
     window.open("https://instagram.com/jabbudcreations", "_blank");
   };
@@ -29,14 +34,44 @@ const PortfolioSection = () => {
           {/* Carrossel de Logotipos */}
           <div className="mb-16 animate-fade-in">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold text-foreground mb-3">
-                Logotipos Criados
-              </h3>
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <h3 className="text-2xl font-semibold text-foreground">
+                  Logotipos Criados
+                </h3>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setShowUploader(!showUploader)}
+                  className="gap-2"
+                >
+                  <Settings className="w-4 h-4" />
+                  {showUploader ? "Ocultar" : "Adicionar Suas Imagens"}
+                </Button>
+              </div>
               <p className="text-muted-foreground">
-                Algumas das identidades visuais que desenvolvemos para nossos clientes
+                {uploadedImages.length > 0 
+                  ? `${uploadedImages.length} imagem(ns) sua(s) + exemplos do nosso trabalho`
+                  : "Algumas das identidades visuais que desenvolvemos para nossos clientes"
+                }
               </p>
             </div>
-            <LogoCarousel />
+
+            {/* Upload de Imagens */}
+            {showUploader && (
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="text-center">Adicione Suas Próprias Imagens</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ImageUploader 
+                    onImagesChange={setUploadedImages}
+                    uploadedImages={uploadedImages}
+                  />
+                </CardContent>
+              </Card>
+            )}
+
+            <LogoCarousel uploadedImages={uploadedImages} />
           </div>
 
           {/* Instagram Integration */}
