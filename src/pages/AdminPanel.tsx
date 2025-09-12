@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Lock, Eye, EyeOff } from 'lucide-react';
+import { Lock, Eye, EyeOff, Trash2, Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import ImageUploader from '@/components/ImageUploader';
 import LogoCarousel from '@/components/LogoCarousel';
+import { useCarouselImages } from '@/hooks/useCarouselImages';
 
 const AdminPanel = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,6 +13,7 @@ const AdminPanel = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
   const [error, setError] = useState('');
+  const { images: dbImages, uploadImage, deleteImage, loading } = useCarouselImages();
 
   // Senha do admin (em produção, isso deveria vir de um backend seguro)
   const ADMIN_PASSWORD = 'jabbud2024';
@@ -108,12 +110,89 @@ const AdminPanel = () => {
       </div>
 
       <div className="container mx-auto px-4 py-8 space-y-8">
-        {/* Gerenciamento de Imagens */}
+        {/* Upload de Novas Imagens */}
         <Card>
           <CardHeader>
-            <CardTitle>Gerenciar Imagens do Carrossel</CardTitle>
+            <CardTitle>Adicionar Imagens ao Carrossel</CardTitle>
             <p className="text-muted-foreground">
-              Adicione ou remova imagens que aparecerão no carrossel do site principal
+              Faça upload de novas imagens para o carrossel (armazenadas no Supabase)
+            </p>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <Input
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={async (e) => {
+                  const files = e.target.files;
+                  if (files) {
+                    for (let i = 0; i < files.length; i++) {
+                      await uploadImage(files[i]);
+                    }
+                  }
+                }}
+                className="cursor-pointer"
+              />
+              <p className="text-sm text-muted-foreground">
+                Selecione uma ou mais imagens (PNG, JPG, WEBP)
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Gerenciar Imagens Existentes */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Imagens do Banco de Dados</CardTitle>
+            <p className="text-muted-foreground">
+              Gerencie as imagens armazenadas no Supabase
+            </p>
+          </CardHeader>
+          <CardContent>
+            {loading ? (
+              <div className="flex justify-center items-center h-32">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+              </div>
+            ) : dbImages.length === 0 ? (
+              <p className="text-center text-muted-foreground py-8">
+                Nenhuma imagem encontrada no banco de dados
+              </p>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {dbImages.map((image) => (
+                  <div key={image.id} className="relative group">
+                    <div className="aspect-square bg-muted/20 rounded-lg overflow-hidden">
+                      <img 
+                        src={image.url} 
+                        alt={image.filename}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={() => deleteImage(image)}
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                    <p className="text-xs text-muted-foreground mt-1 truncate">
+                      {image.filename}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Gerenciamento Local (Legacy) */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Imagens Locais (localStorage)</CardTitle>
+            <p className="text-muted-foreground">
+              Imagens ainda armazenadas localmente (será migrado gradualmente)
             </p>
           </CardHeader>
           <CardContent>
@@ -125,28 +204,26 @@ const AdminPanel = () => {
         </Card>
 
         {/* Preview do Carrossel */}
-        {uploadedImages.length > 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Preview do Carrossel</CardTitle>
-              <p className="text-muted-foreground">
-                Assim as imagens aparecerão no site principal
-              </p>
-            </CardHeader>
-            <CardContent>
-              <LogoCarousel uploadedImages={uploadedImages} />
-            </CardContent>
-          </Card>
-        )}
+        <Card>
+          <CardHeader>
+            <CardTitle>Preview do Carrossel</CardTitle>
+            <p className="text-muted-foreground">
+              Assim as imagens aparecerão no site principal
+            </p>
+          </CardHeader>
+          <CardContent>
+            <LogoCarousel uploadedImages={uploadedImages} />
+          </CardContent>
+        </Card>
 
         {/* Estatísticas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card>
+            <Card>
             <CardContent className="p-6 text-center">
               <div className="text-3xl font-bold text-primary mb-2">
-                {uploadedImages.length}
+                {dbImages.length}
               </div>
-              <p className="text-muted-foreground">Imagens Adicionadas</p>
+              <p className="text-muted-foreground">Imagens no Banco</p>
             </CardContent>
           </Card>
           <Card>
@@ -160,7 +237,7 @@ const AdminPanel = () => {
           <Card>
             <CardContent className="p-6 text-center">
               <div className="text-3xl font-bold text-primary mb-2">
-                {18 + uploadedImages.length}
+                {18 + dbImages.length + uploadedImages.length}
               </div>
               <p className="text-muted-foreground">Total no Carrossel</p>
             </CardContent>

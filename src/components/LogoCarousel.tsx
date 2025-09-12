@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useCarouselImages } from "@/hooks/useCarouselImages";
 
 // Import dos logotipos de exemplo (substitua pelos seus próprios)
 import logo1 from "@/assets/logo-sample-1.png";
@@ -27,6 +28,7 @@ interface LogoCarouselProps {
 }
 
 const LogoCarousel: React.FC<LogoCarouselProps> = ({ uploadedImages = [] }) => {
+  const { images: dbImages, loading } = useCarouselImages();
   // Dados dos logotipos - você pode facilmente modificar estes dados
   const logos = [
     {
@@ -103,15 +105,29 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ uploadedImages = [] }) => {
     },
   ];
 
-  // Combinar logos estáticos com imagens carregadas pelo usuário
+  // Combinar logos estáticos com imagens do banco e do localStorage
   const allImages = [
     ...logos.map(logo => ({ id: logo.id, image: logo.image, isUploaded: false })),
+    ...dbImages.map(img => ({ 
+      id: img.id, 
+      image: img.url, 
+      isUploaded: true,
+      filename: img.filename
+    })),
     ...uploadedImages.map((image, index) => ({ 
-      id: `uploaded-${index}`, 
+      id: `local-${index}`, 
       image, 
       isUploaded: true 
     }))
   ];
+
+  if (loading) {
+    return (
+      <div className="w-full max-w-6xl mx-auto flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-6xl mx-auto">
