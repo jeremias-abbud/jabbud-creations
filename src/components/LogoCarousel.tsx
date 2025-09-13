@@ -155,13 +155,13 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ uploadedImages = [] }) => {
                     className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
                 </div>
-                {item.isUploaded && (
+                {/* {item.isUploaded && (
                   <div className="text-center">
                     <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
                       Sua Imagem
                     </span>
                   </div>
-                )}
+                )} */}
               </div>
             </CarouselItem>
           ))}
