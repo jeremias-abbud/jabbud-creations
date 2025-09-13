@@ -1,7 +1,8 @@
 import React from "react";
-import { Instagram, Eye, ArrowRight } from "lucide-react";
+import { Instagram, Eye, ArrowRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LogoCarousel from "@/components/LogoCarousel";
+import ProjectsGrid from "@/components/ProjectsGrid";
 
 interface PortfolioSectionProps {
   uploadedImages?: string[];
@@ -46,6 +47,20 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ uploadedImages = []
             </div>
 
             <LogoCarousel uploadedImages={uploadedImages} />
+          </div>
+
+          {/* Sites Desenvolvidos */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-semibold text-foreground mb-3">
+                Sites Desenvolvidos
+              </h3>
+              <p className="text-muted-foreground">
+                Projetos completos de websites e aplicações web criados para nossos clientes
+              </p>
+            </div>
+
+            <ProjectsGrid maxItems={6} />
           </div>
 
           {/* Instagram Integration */}
@@ -108,10 +123,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ uploadedImages = []
             <div className="bg-card p-6 rounded-xl shadow-elegant border animate-fade-in hover:shadow-glow transition-all duration-300" style={{ animationDelay: "0.2s" }}>
               <div className="text-center">
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-secondary-foreground font-bold">100%</span>
+                  <Globe className="w-6 h-6 text-secondary-foreground" />
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">Projetos Digitais</h4>
-                <p className="text-muted-foreground text-sm">Sites, motion graphics, posts e campanhas</p>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Sites Completos</h4>
+                <p className="text-muted-foreground text-sm">Websites responsivos e aplicações web</p>
               </div>
             </div>
 
