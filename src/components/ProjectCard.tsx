@@ -1,5 +1,5 @@
 import React from 'react'
-import { ExternalLink, Star } from 'lucide-react'
+import { ExternalLink, Star, Share2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import type { PortfolioProject } from '@/hooks/usePortfolioProjects'
@@ -15,6 +15,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '', styl
     if (project.website_url) {
       window.open(project.website_url, '_blank')
     }
+  }
+
+  const handleShareWhatsApp = () => {
+    const message = `Olá! Gostaria de um site igual a este: *${project.title}*
+
+${project.description}
+
+${project.website_url ? `Confira o projeto: ${project.website_url}` : ''}
+
+Tecnologias: ${project.technologies.join(', ')}
+
+Posso solicitar um orçamento?`
+    
+    const whatsappUrl = `https://wa.me/5531986752884?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
   }
 
   return (
@@ -62,19 +77,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '', styl
           </div>
         )}
 
-        {/* Visit Button */}
-        {project.website_url && (
+        {/* Action Buttons */}
+        <div className="flex gap-2">
+          {project.website_url && (
+            <Button 
+              onClick={handleVisitSite}
+              variant="outline" 
+              size="sm" 
+              className="flex-1 group"
+            >
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Visitar Site
+            </Button>
+          )}
+          
           <Button 
-            onClick={handleVisitSite}
-            variant="outline" 
+            onClick={handleShareWhatsApp}
+            variant="secondary" 
             size="sm" 
-            className="w-full group"
+            className="group bg-green-600 hover:bg-green-700 text-white border-green-600"
           >
-            <ExternalLink className="w-4 h-4 mr-2" />
-            Visitar Site
-            <ExternalLink className="w-3 h-3 ml-2 transition-transform group-hover:translate-x-1" />
+            <Share2 className="w-4 h-4 mr-2" />
+            Compartilhar
           </Button>
-        )}
+        </div>
       </div>
     </div>
   )
