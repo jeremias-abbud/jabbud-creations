@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -10,27 +10,35 @@ import { toast } from 'sonner'
 import { usePortfolioProjects, type CreateProjectData } from '@/hooks/usePortfolioProjects'
 
 interface ProjectFormProps {
+  project?: any
   onSuccess?: () => void
   onCancel?: () => void
 }
 
-const ProjectForm: React.FC<ProjectFormProps> = ({ onSuccess, onCancel }) => {
-  const { createProject, uploadProjectImage } = usePortfolioProjects()
+const ProjectForm: React.FC<ProjectFormProps> = ({ project, onSuccess, onCancel }) => {
+  const { createProject, updateProject, uploadProjectImage } = usePortfolioProjects()
   const [loading, setLoading] = useState(false)
   const [imageFile, setImageFile] = useState<File | null>(null)
   const [imagePreview, setImagePreview] = useState<string>('')
   
-  const [formData, setFormData] = useState<CreateProjectData>({
-    title: '',
-    description: '',
-    image_url: '',
-    website_url: '',
-    technologies: [],
-    category: 'website',
-    is_featured: false
-  })
+  const [formData, setFormData] = useState<CreateProjectData>(() => ({
+    title: project?.title || '',
+    description: project?.description || '',
+    image_url: project?.image_url || '',
+    website_url: project?.website_url || '',
+    technologies: project?.technologies || [],
+    category: project?.category || 'website',
+    is_featured: project?.is_featured || false
+  }))
   
   const [techInput, setTechInput] = useState('')
+
+  // Inicializar preview da imagem para edição
+  useEffect(() => {
+    if (project?.image_url) {
+      setImagePreview(project.image_url)
+    }
+  }, [project])
 
   const handleInputChange = (field: keyof CreateProjectData, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -62,7 +70,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSuccess, onCancel }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    if (!formData.title || !formData.description || !imageFile) {
+    if (!formData.title || !formData.description || (!imageFile && !project?.image_url)) {
       toast.error('Preencha todos os campos obrigatórios')
       return
     }
@@ -70,31 +78,44 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSuccess, onCancel }) => {
     setLoading(true)
     
     try {
-      // Upload da imagem primeiro
-      const imageUrl = await uploadProjectImage(imageFile)
+      let imageUrl = formData.image_url
       
-      // Criar o projeto com a URL da imagem
-      await createProject({
+      // Se há nova imagem, fazer upload
+      if (imageFile) {
+        imageUrl = await uploadProjectImage(imageFile)
+      }
+      
+      const projectData = {
         ...formData,
         image_url: imageUrl
-      })
+      }
+      
+      if (project) {
+        // Editar projeto existente
+        await updateProject(project.id, projectData)
+      } else {
+        // Criar novo projeto
+        await createProject(projectData)
+      }
 
-      // Reset do formulário
-      setFormData({
-        title: '',
-        description: '',
-        image_url: '',
-        website_url: '',
-        technologies: [],
-        category: 'website',
-        is_featured: false
-      })
-      setImageFile(null)
-      setImagePreview('')
+      // Reset do formulário apenas se for criação
+      if (!project) {
+        setFormData({
+          title: '',
+          description: '',
+          image_url: '',
+          website_url: '',
+          technologies: [],
+          category: 'website',
+          is_featured: false
+        })
+        setImageFile(null)
+        setImagePreview('')
+      }
       
       if (onSuccess) onSuccess()
     } catch (error) {
-      console.error('Error creating project:', error)
+      console.error('Error saving project:', error)
     } finally {
       setLoading(false)
     }
@@ -235,7 +256,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSuccess, onCancel }) => {
 
       <div className="flex gap-4 pt-4">
         <Button type="submit" disabled={loading} className="flex-1">
-          {loading ? 'Salvando...' : 'Salvar Projeto'}
+          {loading ? 'Salvando...' : project ? 'Atualizar Projeto' : 'Salvar Projeto'}
         </Button>
         {onCancel && (
           <Button type="button" variant="outline" onClick={onCancel}>

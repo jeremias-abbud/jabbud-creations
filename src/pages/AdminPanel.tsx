@@ -18,6 +18,7 @@ const AdminPanel = () => {
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [showProjectForm, setShowProjectForm] = useState(false);
+  const [editingProject, setEditingProject] = useState<any>(null);
   const { images: dbImages, uploadImage, deleteImage, loading } = useCarouselImages();
   const { projects, deleteProject, loading: projectsLoading } = usePortfolioProjects();
 
@@ -261,11 +262,18 @@ const AdminPanel = () => {
                   Novo Projeto
                 </Button>
               </CardHeader>
-              {showProjectForm && (
+              {(showProjectForm || editingProject) && (
                 <CardContent>
                   <ProjectForm 
-                    onSuccess={() => setShowProjectForm(false)}
-                    onCancel={() => setShowProjectForm(false)}
+                    project={editingProject}
+                    onSuccess={() => {
+                      setShowProjectForm(false)
+                      setEditingProject(null)
+                    }}
+                    onCancel={() => {
+                      setShowProjectForm(false)
+                      setEditingProject(null)
+                    }}
                   />
                 </CardContent>
               )}
@@ -293,15 +301,22 @@ const AdminPanel = () => {
                     {projects.map((project) => (
                       <div key={project.id} className="relative group">
                         <ProjectCard project={project} />
-                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <Button
-                            variant="destructive"
-                            size="sm"
-                            onClick={() => deleteProject(project.id)}
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </Button>
-                        </div>
+                         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
+                           <Button
+                             variant="secondary"
+                             size="sm"
+                             onClick={() => setEditingProject(project)}
+                           >
+                             <Edit className="w-4 h-4" />
+                           </Button>
+                           <Button
+                             variant="destructive"
+                             size="sm"
+                             onClick={() => deleteProject(project.id)}
+                           >
+                             <Trash2 className="w-4 h-4" />
+                           </Button>
+                         </div>
                       </div>
                     ))}
                   </div>
