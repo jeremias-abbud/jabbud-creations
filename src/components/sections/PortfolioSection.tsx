@@ -2,7 +2,7 @@ import React from "react";
 import { Instagram, Eye, ArrowRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LogoCarousel from "@/components/LogoCarousel";
-import ProjectsGrid from "@/components/ProjectsGrid";
+import ProjectsCarousel from "@/components/ProjectsCarousel";
 
 interface PortfolioSectionProps {
   uploadedImages?: string[];
@@ -60,7 +60,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ uploadedImages = []
               </p>
             </div>
 
-            <ProjectsGrid maxItems={6} />
+            <ProjectsCarousel maxItems={6} />
           </div>
 
           {/* Instagram Integration */}
