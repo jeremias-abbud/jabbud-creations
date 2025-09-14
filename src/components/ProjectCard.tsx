@@ -20,11 +20,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '', styl
   return (
     <div className={`bg-card rounded-xl shadow-elegant border overflow-hidden hover:shadow-glow transition-all duration-300 hover:-translate-y-1 ${className}`} style={style}>
       {/* Image */}
-      <div className="aspect-video relative overflow-hidden">
+      <div className="aspect-video relative overflow-hidden bg-muted/30">
         <img 
           src={project.image_url} 
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
         />
         {project.is_featured && (
           <div className="absolute top-4 left-4">
