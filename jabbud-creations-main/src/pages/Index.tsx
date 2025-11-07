@@ -18,9 +18,9 @@ const Index: React.FC<IndexProps> = ({ uploadedImages = [] }) => {
       <Header />
       <main>
         <HeroSection />
+        <PortfolioSection uploadedImages={uploadedImages} />
         <AboutSection />
         <ProductsSection />
-        <PortfolioSection uploadedImages={uploadedImages} />
         <ContactSection />
       </main>
       <Footer />
