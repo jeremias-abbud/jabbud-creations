@@ -28,7 +28,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ project, onSuccess, onCancel 
     website_url: project?.website_url || '',
     technologies: project?.technologies || [],
     category: project?.category || 'website',
-    is_featured: project?.is_featured || false
+    is_featured: project?.is_featured ?? true
   }))
   
   const [techInput, setTechInput] = useState('')
@@ -107,7 +107,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ project, onSuccess, onCancel 
           website_url: '',
           technologies: [],
           category: 'website',
-          is_featured: false
+          is_featured: true
         })
         setImageFile(null)
         setImagePreview('')
@@ -163,7 +163,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ project, onSuccess, onCancel 
               checked={formData.is_featured}
               onCheckedChange={(checked) => handleInputChange('is_featured', checked)}
             />
-            <Label htmlFor="featured">Projeto em destaque</Label>
+            <Label htmlFor="featured">Exibir no Portfolio</Label>
           </div>
         </div>
 
